@@ -20,4 +20,16 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
+  
+   <input id="title" type="text" ng-model="newNote.title"/> 
+                   <input id="description" type="text" ng-model="newNote.description"/> 
+                  
+                   <button ng-click="addNote()" > Add Note </button>
+                   
+                    <button ng-click="getAllNotes()" > Get Notes </button>
+                    <div data-ng-repeat="note in notesList">
+				<div>{{note.title}}</div>
+				<div>{{note.description}}</div>
+                                <div>{{note.id}}</div>
+			</div>
 </div>
