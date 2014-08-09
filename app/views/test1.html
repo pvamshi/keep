@@ -1,8 +1,9 @@
-<div >
+<div>
     <!-- directive template view page should always have single root node, Dont
         ignore this and get frustrated later :) -->
     <hr />
-    <input type="text" placeholder="Enter your name" ><br />
-
+    <input type="text" placeholder="Enter your name" ng-model="name">
+    <br />
+    <input type="button" ng-click="saveName()" value="Save">
     <hr />
 </div>
