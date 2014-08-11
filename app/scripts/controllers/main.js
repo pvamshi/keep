@@ -27,16 +27,16 @@ angular.module('keepApp')
 
     $scope.newNote = {}; 
     $scope.notesList = [];
-    var NODE_ID_LIST = "noteIdList";
+    var NODE_ID_LIST = 'noteIdList';
 
     // returns the current local date & time
     $scope.generateNoteId = function(){
-        var date = new Date ;
+        var date = new Date();
      // var date =  (new Date).toLocaleFormat("%A, %B %e, %Y");  
       //alert(date);
       return date.getTime();
       
-    }
+    };
     
     $scope.addNote = function(){
        // add the new id to the notes list in localstorage 

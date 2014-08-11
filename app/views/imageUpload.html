@@ -1,8 +1,10 @@
 <div>
   <div keep-file-drop id="holder">
     <p id="upload">
-      <label>Please Drag & drop your file or upload via:<br><input type="file"></label>
+      <label>Please Drag & drop your file or upload via:<br><input type="file" accept="image/*"></label>
     </p>
   </div> 
-  <img data-ng-repeat="fileUrl in fileUrls" src='{{fileUrl}}'/>
+  <!-- <img data-ng-repeat="file in files" src='data:image/png;base64,{{file}}'/> -->
+  
+ 
 </div>
