@@ -29,3 +29,8 @@ progress:after {
 .hidden { 
     display: none !important;
 }
+.imgPreview{
+    height:300px;
+    width:350px;
+ }
+                                                       

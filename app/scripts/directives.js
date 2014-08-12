@@ -19,18 +19,58 @@ angular
             templateUrl: 'views/imageUpload.html',
             controller: function($scope) {
                 $scope.onDrag = function() {
-                    console.log('onDrag');
+                    console.log('onDrag');  
                 };
             }
         };
     })
+
+    // Directive that Manipulates the DOM - create Img tags 
+    .directive('keepPreviewImages', [ function() {
+
+    function link(scope, element, attrs) {
+      function generatePreviewImg() {
+        //element.text(dateFilter(new Date(), format));
+        if (typeof FileReader !== "undefined") {
+            var filesArr = scope.files;
+            if(filesArr){
+                while (element[0].firstChild) {
+                    element[0].removeChild(element[0].firstChild);
+                }
+                for (var i = 0; i < filesArr.length; i++) {
+                    var img = document.createElement("img");
+                   // img.style.cssText = "height:300px;width:350px;";
+                    img.className = "imgPreview"; 
+                    element[0].appendChild(img);
+                    var reader = new FileReader();
+                    reader.onload = (function (theImg) {
+                            return function (evt) {
+                            theImg.src = evt.target.result;
+                            };
+                    }(img));
+                    reader.readAsDataURL(scope.files[i]);
+                }
+            }
+            
+        }
+      }
+
+      scope.$watch('files', function(value) {
+        generatePreviewImg();
+      });
+    }
+
+    return {
+      link: link
+    };
+  }])
+     // END manipulate DOM
     
     // Directive that Adds events to an element 
     .directive('keepFileDrop', ['$document', '$parse',function($document,$parse){
          return function(scope, element, attr) {
              //define events on element 
              scope.fileCount = 0;
-             scope.files = [];
              element[0].addEventListener("dragover", function(evt) {
                         evt.stopPropagation();
                         evt.preventDefault();
@@ -59,12 +99,10 @@ angular
                                         // check fileList.item(i).type if it is  png, jpeg
                                         if(fileList.item(i).type == 'image/png' || fileList.item(i).type == 'image/jpeg'){
                                             files.push(fileList.item(i));
-                                             if (typeof FileReader !== "undefined") {
+                                             /*if (typeof FileReader !== "undefined") {
                                                         var img = document.createElement("img");
-                                                        img.style.cssText = "height:300px;width:350px;";
-                                                       // img.style.height = "300 px";
-                                                        //img.style.width = "300 px"
-                                                        //console.log(element);
+                                                       // img.style.cssText = "height:300px;width:350px;";
+                                                        img.className = "imgPreview"; 
                                                         element[0].parentNode.appendChild(img);
                                                         var reader = new FileReader();
                                                         reader.onload = (function (theImg) {
@@ -73,12 +111,16 @@ angular
                                                                 };
                                                         }(img));
                                                         reader.readAsDataURL(fileList.item(i));
-                                            }
+                                            }*/
                                          
                                         }
                                 }
                         }
                         // adding files object to scope 
+                        var previousFiles = scope.files;
+                        if(previousFiles) {
+                          files = files.concat(previousFiles);
+                        }
                         scope.files = files;
                         scope.fileCount = files.length;
                         scope.$apply();
