@@ -127,5 +127,33 @@ angular
             } // end of extractFiles
              
          } //end of return     
-    }]);
+    }])    
+    .directive('keepToolBar', function() {
+        return {
+            restrict: 'AE',
+            templateUrl: 'views/KeepToolBar.html',
+            transclude: true,
+            link: function(scope, element, attrs) {
+                //Makes the notes to list view
+                $( ".toolbar-menu-button .list-view" ).on("click", function(){
+
+                });
+
+                //Makes the notes to grid view
+                $( ".toolbar-menu-button .grid-view" ).on("click", function(){
+
+                })
+            },
+        };
+    })
+    .directive('keepToolBarMenu', function() {
+        return {
+            restrict: 'AE',
+            templateUrl: 'views/KeepToolBarMenu.html',
+            transclude: true,
+            link: function(scope, element, attrs) {
+                
+            },
+        };
+    });
 
