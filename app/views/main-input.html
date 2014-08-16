@@ -1,0 +1,15 @@
+<div class="container seperate">
+    <div ng-hide="editmode" class="main-box full-width enable-shadow">
+        <span ng-click="edit()"> Add note </span>
+    </div>
+    <div ng-show="editmode" class="main-box enable-shadow full-width">
+        <input type="text" class="full-width bold-placeholder big-text" placeholder="Title" ng-model="title">
+        <!-- <input type="text" class="full&#45;width" placeholder="Add note" ng&#45;model="note"> -->
+        <textarea row="1" placeholder="Add note" ng-model="note" class="expanding"  ></textarea>
+        <div class="full-width">
+            <div class="pull-right col-lg-4">
+                <button class="pull-right" type="button" ng-click="addNote()" value="Done">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
