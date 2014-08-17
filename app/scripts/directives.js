@@ -1,8 +1,8 @@
 'use strict';
 angular
     .module('keepApp')
-    .directive('kpMainInput', ['$timeout', 'StoreItem',
-        function($timeout, StoreItem) {
+    .directive('kpMainInput', ['$timeout', 'StoreItem', '$document',
+        function($timeout, StoreItem, $document) {
             var saveItem = function(scope) {
                 scope.editmode = false;
                 if (scope.note || scope.title) {
@@ -24,7 +24,7 @@ angular
                         scope.title = '';
                         scope.note = '';
                         $timeout(function() {
-//TODO: See what can we do to remove this jquery call here 
+                            //TODO: See what can we do to remove this jquery call here 
                             $('.expanding').expanding();
                             elem.find('textarea')[0].focus();
                         });
@@ -38,6 +38,11 @@ angular
                             scope.$apply();
                         }
                     });
+                    // $document.on('click', function(event) {
+                    //     if (scope.editmode && !event.target.matches('span.safeclick')) {
+                    //         saveItem(scope);
+                    //     }
+                    // });
                 }
             };
         }

@@ -2,7 +2,8 @@
 angular
     .module('keepApp').factory('StoreItem', function() {
         var items = {
-            name: 'items'
+            name: 'items',
+            adapter:'dom'
         };
         return {
             add: function(title, notes, cb) {

@@ -1,13 +1,21 @@
 <div class="container seperate">
     <div ng-hide="editmode" class="main-box full-width enable-shadow">
-        <span ng-click="edit()"> Add note </span>
+        <span ng-click="edit()" class='spaced align-middle'> Add note </span>
     </div>
     <div ng-show="editmode" class="main-box enable-shadow full-width">
+        <!-- <div class="row"> -->
         <input type="text" class="full-width bold-placeholder big-text" placeholder="Title" ng-model="title">
         <!-- <input type="text" class="full&#45;width" placeholder="Add note" ng&#45;model="note"> -->
-        <textarea row="1" placeholder="Add note" ng-model="note" class="expanding"  ></textarea>
-        <div class="full-width">
-            <div class="pull-right col-lg-4">
+        <textarea row="1" placeholder="Add note" ng-model="note" class="expanding"></textarea>
+        <!-- </div> -->
+        <div class="full-width bottom-bar">
+            <div class="col-lg-8 no-padding">
+              <span class="glyphicon glyphicon-bell"></span>
+              <i class="icon-palette"></i>
+              <span class="glyphicon glyphicon-list"></span>
+              <span class="glyphicon glyphicon-picture"></span>
+            </div>
+            <div class="pull-right col-lg-4 no-padding">
                 <button class="pull-right" type="button" ng-click="addNote()" value="Done">Done</button>
             </div>
         </div>

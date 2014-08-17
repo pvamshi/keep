@@ -97,7 +97,7 @@ body {
 }
 .main-box {
     background-color: white;
-    padding: 12px;
+    padding: 8px;
 }
 .main-box input {
     padding: 7px 3px;
@@ -120,16 +120,33 @@ I didnt like that */
 .main-box pre {
     min-height: 23px !important;
 }
+.main-box .expanding-wrapper {
+    width: 100%;
+}
+/* expanding styling ends here */
+
 .main-box span {
-    display: inline-block;
-    vertical-align: middle;
-    color: #949494;
+    color: #747474;
+    padding: 5px 3px;
+}
+.main-box span.glyphicon,
+.main-box i {
+    color: #747474;
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 0px;
+}
+.main-box span.glyphicon:hover,
+.main-box i:hover {
+    color: #333;
+    cursor: pointer;
 }
 .main-box div {
     display: inline-block;
     vertical-align: middle;
     color: #313131;
-    width: 100%;
 }
 .main-box button {
     font-size: 11px;
@@ -137,7 +154,8 @@ I didnt like that */
     color: #444;
     padding: 6px 22px;
     font-family: 'Roboto', 'Sans Serif', serif;
-    border: 1px solid #eee;
+    border: 1px solid #ddd !important;
+    background-color: #EEE;
     border-radius: 2px;
 }
 .main-box button:hover {
@@ -148,17 +166,17 @@ I didnt like that */
 input.bold-placeholder::-webkit-input-placeholder {
     font-weight: bold;
     font-size: 17px;
-    color: #949494;
+    color: #747474;
 }
 input.bold-placeholder::-moz-placeholder {
     font-weight: bold;
     font-size: 17px;
-    color: #949494;
+    color: #747474;
 }
 input.bold-placeholder:-ms-input-placeholder {
     font-weight: bold;
     font-size: 17px;
-    color: #949494;
+    color: #747474;
 }
 .seperate {
     margin-bottom: 30px;
@@ -166,4 +184,17 @@ input.bold-placeholder:-ms-input-placeholder {
 .big-text {
     font-size: 17px;
     font-weight: bold;
+}
+.spaced {
+    padding: 7px 5px;
+}
+.no-padding {
+    padding: 0px !important;
+}
+.align-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+.bottom-bar {
+    margin-top: 10px;
 }
