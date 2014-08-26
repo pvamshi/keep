@@ -66,4 +66,25 @@ angular.module('keepApp')
     };
     
     // Sticky Note related SEND // 
-  });
+  })
+  .service('keepNotes',[function(){
+    var addNote, getNote, getAllNotes, searchNotes;
+    addNote = function(){
+
+    };
+    getNote = function(){
+
+    };
+    getAllNotes = function(){
+
+    };
+    searchNotes = function(){
+
+    }
+    return {
+      addNote: addNote,
+      getNote: getNote,
+      getAllNotes: getAllNotes,
+      searchNotes: searchNotes
+    }
+  }]);

@@ -1,0 +1,21 @@
+<div class="keep-notes-editor-container">
+   <div class="keep-notes-editor">
+      <input class="keep-notes-title place-holder" type="text" placeholder="Title" ng-show="addingNotes"></input>
+      <div class="keep-notes-data place-holder" ng-click="openEditor()" contenteditable="true" placeholder="Add note"></div>
+      <div class="keep-notes-list hidden" contenteditable="true"></div>
+   </div>
+    <div ng-class="{keepNotesOptions : !addingNotes, keepNotesOptionsAll : addingNotes}">
+        <div class="button-container" ng-show="addingNotes">
+            <div class="color-picker button-element"></div>
+        </div>
+        <div class="button-container">
+            <div class="add-list button-element"></div>
+        </div>
+        <div class="button-container">
+            <div class="add-image button-element"></div>
+        </div>
+        <div class="button-container button-submit" ng-show="addingNotes" ng-click="addNote()">
+            <div class="button-done">Done</div>
+        </div>
+    </div>
+</div>

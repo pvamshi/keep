@@ -155,5 +155,26 @@ angular
                 
             },
         };
-    });
+    })
+    .directive('keepAddNote', ['keepNotes', function(keepNotes) {
+        var _keepNotes = keepNotes;
+        return {
+            restrict: 'AE',
+            templateUrl: 'views/KeepAddNote.html',
+            keepNotes: _keepNotes,
+            transclude: true,
+            link: function(scope, element, attrs) {
+                scope.addingNotes = false;
+                element.on('click', function( eventObject ){
+                    var srcElement = eventObject.target;
+                });
+                scope.openEditor = function(){
+                    scope.addingNotes = true;
+                    //angular.element(".keep-notes-options").addClass("keep-notes-options-all").removeClass("keep-notes-options");
+                };
+                scope.addNote =function(){
+                }
+            },
+        };
+    }]);
 
