@@ -8,7 +8,7 @@
  * Controller of the keepApp
  */
 angular.module('keepApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, keepNotes) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -26,7 +26,7 @@ angular.module('keepApp')
     */
 
     $scope.newNote = {}; 
-    $scope.notesList = [];
+    $scope.keepNotesList = [];
     var NODE_ID_LIST = 'noteIdList';
 
     // returns the current local date & time
@@ -52,7 +52,8 @@ angular.module('keepApp')
             
         }              
         //$scope.noteIdList = localStorage.getItem("noteIdList") || [];
-	$scope.noteIdList.push(newNoteId);
+        $scope.noteIdList.push(newNoteId);
+        $scope.keepNotesList.push(JSON.parse(JSON.stringify($scope.newNote)));
         localStorage.setItem(NODE_ID_LIST,JSON.stringify($scope.noteIdList));
         localStorage.setItem(newNoteId, JSON.stringify($scope.newNote));
     };
@@ -67,11 +68,12 @@ angular.module('keepApp')
     
     // Sticky Note related SEND // 
   })
-  .service('keepNotes',[function(){
+  .service('keepNotes',[function($scope){
     var addNote, getNote, getAllNotes, searchNotes;
-    addNote = function(){
 
+    addNote = function(){
     };
+
     getNote = function(){
 
     };

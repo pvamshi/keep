@@ -72,7 +72,6 @@ html, body{
 	background: white;
 	margin: 0 auto;
 	position: relative;
-	top: 10px;
 	width: 600px;
 }
 .keep-notes-editor{
@@ -154,4 +153,25 @@ html, body{
 }
 .show{
 	display: inline-block;
+}
+.has-error{
+	border: 2px solid rgb(230, 49, 49);
+	border-radius: 7px;
+}
+
+.keep-notes-list-container .keep-notes-tile-container .keepNotesOptionsAll{
+	visibility: hidden;
+}
+.keep-notes-tile-container .keep-notes-tile-container:hover .keepNotesOptionsAll{
+	visibility: visible;
+}
+.keep-notes-tile-container{
+	margin: 0 auto;
+	width: 300px;
+	background: white;
+	text-align: center;
+}
+
+.keep-notes-tile{
+	margin: 10px;
 }

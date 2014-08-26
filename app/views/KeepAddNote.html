@@ -1,8 +1,8 @@
-<div class="keep-notes-editor-container">
+<div class="keep-notes-editor-container"  ng-model="newNote">
    <div class="keep-notes-editor">
-      <input class="keep-notes-title place-holder" type="text" placeholder="Title" ng-show="addingNotes"></input>
-      <div class="keep-notes-data place-holder" ng-click="openEditor()" contenteditable="true" placeholder="Add note"></div>
-      <div class="keep-notes-list hidden" contenteditable="true"></div>
+      <input id="notesTitle" class="keep-notes-title place-holder" required type="text" placeholder="Title" ng-show="addingNotes" ng-class="{'has-error': notesTitle.$invalid}"  ng-model="newNote.title"></input>
+      <div class="keep-notes-data place-holder" ng-click="openEditor()"  ng-model="newNote.description" contenteditable="true" placeholder="Add note"></div>
+      <div class="keep-notes-list hidden"  contenteditable="true"></div>
    </div>
     <div ng-class="{keepNotesOptions : !addingNotes, keepNotesOptionsAll : addingNotes}">
         <div class="button-container" ng-show="addingNotes">
@@ -14,7 +14,7 @@
         <div class="button-container">
             <div class="add-image button-element"></div>
         </div>
-        <div class="button-container button-submit" ng-show="addingNotes" ng-click="addNote()">
+        <div class="button-container button-submit" ng-show="addingNotes" ng-click="submitNote();addingNotes=false;">
             <div class="button-done">Done</div>
         </div>
     </div>

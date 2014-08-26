@@ -1,0 +1,22 @@
+<div class="keep-notes-list-container">
+  <div class="keep-notes-tile-container" ng-repeat="note in keepNotesList">
+    <div class="keep-notes-tile">
+       <div class="keep-notes-tile-content">
+          <div class="keep-notes-title" ng-bind="note.title"></div>
+          <div class="keep-notes-data" ng-bind="note.description"></div>
+          <div class="keep-notes-list hidden" contenteditable="true"></div>
+       </div>
+        <div class="keepNotesOptionsAll">
+            <div class="button-container">
+                <div class="color-picker button-element"></div>
+            </div>
+            <div class="button-container">
+                <div class="add-list button-element"></div>
+            </div>
+            <div class="button-container">
+                <div class="add-image button-element"></div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
